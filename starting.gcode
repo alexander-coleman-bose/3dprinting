@@ -29,10 +29,10 @@ G28 ; home all
 ; Final warmup routine
 M117 Final warmup
 G0 Z5; Raise nozzle
-M140 S[first_layer_bed_temperature] ; set bed final temp
-M104 S[first_layer_temperature] ; set extruder final temp
-M109 S[first_layer_temperature] ; wait for extruder final temp
-M190 S[first_layer_bed_temperature] ; wait for bed final temp
+M140 S{first_layer_bed_temperature[0]} ; set bed final temp
+M104 S{first_layer_temperature[0]} ; set extruder final temp
+M190 S{first_layer_bed_temperature[0]} ; wait for bed final temp
+M109 S{first_layer_temperature[0]} ; wait for extruder final temp
 
 ; Prime line routine
 M300 P30 ; chirp 30 ms
@@ -42,15 +42,16 @@ G4 P120 ; delay 120 ms
 M300 P30 ; chirp 30 ms
 G4 P120 ; delay 120 ms
 M117 Printing prime line
-G0 X5 Y5 F6000.0 ; Go to (5, 5)
-G0 Z0.3 F1000.0
-G92 E0.0 ; reset extrusion distance
-G1 E2 F1000 ; de-retract and push ooze
+G0 X10 Y2 F6000 ; Go to (10, 2)
+G0 Z0.28 F250 ; Lower nozzle to priming position
+G1 E2 F1000 ; de-retract and push blob
+G92 E0 ; reset extrusion distance
 
-G1 X100 F1500.0 E10 ; Draw the first line
-G1 Y5.3 F5000.0 ; Move to side a little
-G1 X5 F1500.0 E10 ; Draw the second line
-G1 X10 ; Wipe 5 mm
-G1 X5 ; Wipe back
-G1 Y15 Z0.1 ; Coast down to 0.1 mm over 10 mm
+G1 X140 Y2      F1500   E10 ; Draw the first line
+G1 X140 Y2.3    F5000       ; Move to side a little
+G92 E0 ; reset extrusion distance
+G1 X15  Y2.3    F1200   E10 ; Draw the second line
+G1 X20  Y2.3    F1500       ; Wipe 5 mm
+G1 X15  Y2.3    F1500       ; Wipe back
+G1 X5   Y12     Z0.1        ; Coast down to 0.1 mm over 10 mm
 G92 E0 ; Reset Extruder

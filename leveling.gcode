@@ -11,10 +11,10 @@ G4 P120 ; delay 120 ms
 
 ; Set initial warmup temps
 M117 Nozzle preheat
-M104 S160 ; set extruder no-ooze temp
+M104 S150 ; set extruder no-ooze temp
 M140 S60 ; set bed warmup temp
 ; Nozzle warmup before home to avoid driving hardened ooze into PEI surface
-M109 S160 ; wait for extruder no-ooze warmup temp before mesh bed leveling
+M109 S150 ; wait for extruder no-ooze warmup temp before mesh bed leveling
 M190 S60 ; wait for bed temp
 M300 P30 ; chirp 30 ms
 G4 P120 ; delay 120 ms
