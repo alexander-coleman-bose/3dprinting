@@ -11,6 +11,7 @@ G4 P120 ; delay 120 ms
 
 ; Home & Level at temp
 M117 Leveling
+G28 ; Auto-home
 G29 ; Automatic bed-leveling routine
 
 ; Done!

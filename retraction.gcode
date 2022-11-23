@@ -3,7 +3,7 @@
 
 M104 S195 ; Set hot-end temp to 195
 G90 ; use absolute coordinates
-G0 X220
+G0 X220 Y110 Z200; Straighten out Bowden tube, center build plate, raise nozzle
 M109 S195 ; Wait until hot-end reaches 195
 ; G92 E0 ; Set current extruder position as 0
 

@@ -18,8 +18,6 @@ M109 S150 ; wait for extruder no-ooze warmup temp before mesh bed leveling
 M190 S60 ; wait for bed temp
 M300 P30 ; chirp 30 ms
 G4 P120 ; delay 120 ms
-M300 P30 ; chirp 30 ms
-G4 P120 ; delay 120 ms
 
 M117 Equalizing Temps
 G4 S120 ; wait 120 seconds at temp
@@ -30,6 +28,7 @@ G4 P120 ; delay 120 ms
 
 ; Home & Level at temp
 M117 Leveling
+G28 ; Auto-home
 G29 ; Automatic bed-leveling routine
 
 ; Done!
