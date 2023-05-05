@@ -3,7 +3,7 @@
 
 ; Get the current EEPROM settings
 M503 C ; Save the embedded configuration ZIP file to the SD Card or Flash Drive (not sure if supported on E3V2N)
-M420 V; Get current bed leveling state & mesh, if valid
+M420 V ; Get current bed leveling state & mesh, if valid
 
 ; Heat the bed to 60C, but don't wait for it
 M140 S60
@@ -11,7 +11,6 @@ M140 S60
 G90 ; Absolute coordinate mode
 M420 S0 ; Disable bed-leveling
 M206 Z0 ; Set Z-axis home offset to 0.0
-M851 Z0 ; Set Z-axis home offset to 0.0
 G29 P0 ; Dump existing bed-leveling mesh
 
 ; Auto-home
