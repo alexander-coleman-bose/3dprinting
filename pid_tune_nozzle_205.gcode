@@ -1,15 +1,19 @@
-; PID autotune bed for 60C
+; PID autotune nozzle for 205C
 ; Ender-3 V2 Neo
 
 M503 ; Print current firmware settings
 
-M140 S60 ; Set bed temp to 60C
+M104 S205 ; Set hot-end temp to 205C
 G28 ; Auto-home
 G90 ; use absolute coordinates
 G0 X110 Y110 Z5 F5000; Move to just above the middle of the build plate
-M190 S60 ; Wait until bed reaches 60C
+M109 S205 ; Wait until hot-end reaches 205C
 
-M303 C10 E-1 S60 U1 ; 10 cycles of PID tune for E=-1 (bed)
+M83 ; Set Extruder to relative
+G1 E-5 F100 ; Retract 5 mm slowly
+G92 E0 ; Set current extruder position as 0
+
+M303 C10 S205 U1 ; 10 cycles of PID tune
 
 M503 ; Print current firmware settings
 M500 ; Save the results
