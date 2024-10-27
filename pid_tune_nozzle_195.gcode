@@ -13,7 +13,7 @@ M83 ; Set Extruder to relative
 G1 E-5 F100 ; Retract 5 mm slowly
 G92 E0 ; Set current extruder position as 0
 
-M303 C10 S195 U1 ; 10 cycles of PID tune
+M303 C10 E0 S195 U1 ; 10 cycles of PID tune
 
 M503 ; Print current firmware settings
 M500 ; Save the results
