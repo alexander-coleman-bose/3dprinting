@@ -1,3 +1,3 @@
-; COLOR_CHANGE
-; Ender-3 V2 Neo
+; color_change.gcode
+; Morpheus
 M600
